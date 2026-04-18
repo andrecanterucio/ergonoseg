@@ -49,16 +49,26 @@ export default function Hero() {
         background: '#0a2818',
       }}
     >
-      {/* Background image */}
-      <img
-        src="/hero.png"
-        aria-hidden="true"
-        style={{
-          position: 'absolute', inset: 0,
-          width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.28,
-        }}
-      />
+      {/* YouTube video background */}
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+        <iframe
+          src="https://www.youtube.com/embed/L4u7cRhl9XI?autoplay=1&mute=1&loop=1&playlist=L4u7cRhl9XI&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3"
+          allow="autoplay; encrypted-media"
+          style={{
+            position: 'absolute',
+            top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 'max(100%, 177.78vh)',
+            height: 'max(56.25vw, 100%)',
+            opacity: 0.38,
+            border: 'none',
+            pointerEvents: 'none',
+          }}
+          title="background"
+          aria-hidden="true"
+          tabIndex={-1}
+        />
+      </div>
 
       {/* Dark green overlay */}
       <div style={{
