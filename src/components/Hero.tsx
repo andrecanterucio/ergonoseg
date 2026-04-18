@@ -50,7 +50,16 @@ export default function Hero() {
         background: '#0a2818',
       }}
     >
-      {/* Video background */}
+      {/* Video background — o <img> é exibido enquanto o vídeo carrega ou se não estiver disponível */}
+      <img
+        src="/hero.png"
+        aria-hidden="true"
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover', opacity: 0.22,
+        }}
+      />
       <video
         autoPlay
         muted
