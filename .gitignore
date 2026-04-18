@@ -4,6 +4,9 @@ dist/
 .env.local
 .vercel
 *.log
-# Arquivo grande — hospedar externamente ou usar Git LFS
+.claude/
+# Vídeo grande — servir via CDN ou Git LFS
 Video_Ergonoseg.mp4
 public/Video_Ergonoseg.mp4
+
+.vercel

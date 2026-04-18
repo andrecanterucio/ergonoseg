@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ArrowRight, MessageCircle, CheckCircle, Shield } from 'lucide-react'
 
-const videoSrc = '/Video_Ergonoseg.mp4'
 
 const dynamicPhrases = [
   'Conformidade que salva vidas.',
@@ -50,32 +49,16 @@ export default function Hero() {
         background: '#0a2818',
       }}
     >
-      {/* Video background — o <img> é exibido enquanto o vídeo carrega ou se não estiver disponível */}
+      {/* Background image */}
       <img
         src="/hero.png"
         aria-hidden="true"
         style={{
           position: 'absolute', inset: 0,
           width: '100%', height: '100%',
-          objectFit: 'cover', opacity: 0.22,
+          objectFit: 'cover', opacity: 0.28,
         }}
       />
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          opacity: 0.32,
-        }}
-      >
-        <source src={videoSrc} type="video/mp4" />
-      </video>
 
       {/* Dark green overlay */}
       <div style={{
