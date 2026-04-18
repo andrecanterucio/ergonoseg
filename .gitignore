@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.local
+.vercel
+*.log
+# Arquivo grande — hospedar externamente ou usar Git LFS
+Video_Ergonoseg.mp4
+public/Video_Ergonoseg.mp4
