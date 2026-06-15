@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
 import {
   FileText, Heart, Zap, Flame, Users, ClipboardCheck,
-  Activity, HardHat, BookOpen, Eye, Shield, Leaf
+  Activity, HardHat, BookOpen, Eye, Shield, Leaf,
+  Volume2, Wind, Map, Scale, Wrench, TrendingUp, GraduationCap
 } from 'lucide-react'
 
 const services = [
@@ -25,7 +26,7 @@ const services = [
   },
   {
     icon: Zap,
-    title: 'PPRA / PGASSO',
+    title: 'PPRA',
     desc: 'Programas preventivos para mapeamento e controle de riscos ambientais e de saúde, mantendo sua empresa em dia com a legislação.',
     color: '#0891b2',
   },
@@ -76,6 +77,48 @@ const services = [
     title: 'Meio Ambiente e Sustentabilidade',
     desc: 'Orientação em gestão ambiental, descarte correto de resíduos e adequação às normas ambientais vigentes (CONAMA, ABNT).',
     color: '#16a34a',
+  },
+  {
+    icon: Volume2,
+    title: 'LAUDO NBR 10151',
+    desc: 'Medições de ruído ambiental com equipamentos devidamente calibrados e em conformidade total com a norma, garantindo resultados confiáveis e aceitos por órgãos reguladores.',
+    color: '#0369a1',
+  },
+  {
+    icon: Wind,
+    title: 'LAUDO P4.261 CETESB',
+    desc: 'Avaliação técnica de emissões sonoras conforme diretrizes da CETESB, assegurando que sua empresa esteja dentro dos padrões exigidos pela legislação ambiental.',
+    color: '#4f46e5',
+  },
+  {
+    icon: Map,
+    title: 'EIV — ESTUDO DE IMPACTO DE VIZINHANÇA',
+    desc: 'Análise completa dos impactos do seu empreendimento na região, facilitando aprovações e evitando problemas legais com a comunidade e órgãos públicos.',
+    color: '#b45309',
+  },
+  {
+    icon: Scale,
+    title: 'PERÍCIA JUDICIAL',
+    desc: 'Atuação como perito técnico em processos judiciais, com laudos claros, imparciais e fundamentados para apoiar decisões com segurança.',
+    color: '#374151',
+  },
+  {
+    icon: Wrench,
+    title: 'ASSISTÊNCIA TÉCNICA EM PERÍCIAS',
+    desc: 'Suporte especializado em perícias trabalhistas, previdenciárias e industriais, defendendo seus interesses com embasamento técnico sólido.',
+    color: '#9333ea',
+  },
+  {
+    icon: TrendingUp,
+    title: 'ESTUDO DE VIABILIDADE ECONÔMICA',
+    desc: 'Análise estratégica para validar processos e investimentos, reduzindo riscos e aumentando a previsibilidade dos resultados do seu negócio.',
+    color: '#0f766e',
+  },
+  {
+    icon: GraduationCap,
+    title: 'TREINAMENTOS CORPORATIVOS',
+    desc: 'Capacitações técnicas em Português, Espanhol e Inglês, preparadas para equipes que buscam qualificação prática e alinhada às exigências do mercado.',
+    color: '#c2410c',
   },
 ]
 
