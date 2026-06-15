@@ -85,9 +85,9 @@ const services = [
     color: '#0369a1',
   },
   {
-    icon: Wind,
-    title: 'LAUDO P4.261 CETESB',
-    desc: 'Avaliação técnica de emissões sonoras conforme diretrizes da CETESB, assegurando que sua empresa esteja dentro dos padrões exigidos pela legislação ambiental.',
+    icon: Zap,
+    title: 'PGR EAR — NORMA P4.261 CETESB',
+    desc: 'Gerenciamento de riscos para atividades com substâncias perigosas, seguindo rigorosamente a Norma CETESB P4.261. Identifique, avalie e controle cenários de acidentes, protegendo trabalhadores, comunidade e o meio ambiente, além de garantir conformidade legal do seu empreendimento.',
     color: '#4f46e5',
   },
   {
