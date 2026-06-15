@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import {
   FileText, Heart, Zap, Flame, Users, ClipboardCheck,
   Activity, HardHat, BookOpen, Eye, Shield, Leaf,
-  Volume2, Wind, Map, Scale, Wrench, TrendingUp, GraduationCap
+  Volume2, Map, Scale, Wrench, TrendingUp, GraduationCap
 } from 'lucide-react'
 
 const services = [
