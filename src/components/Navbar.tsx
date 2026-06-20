@@ -33,6 +33,7 @@ export default function Navbar() {
         transition: 'background 0.3s ease, box-shadow 0.3s ease',
         background: scrolled ? 'rgba(255,255,255,0.96)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
         boxShadow: scrolled ? '0 1px 0 rgba(0,0,0,0.07)' : 'none',
       }}
     >
@@ -117,6 +118,7 @@ export default function Navbar() {
           <div style={{
             background: 'rgba(255,255,255,0.98)',
             backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
             borderTop: '1px solid rgba(0,0,0,0.07)',
             padding: '20px 0',
           }}>

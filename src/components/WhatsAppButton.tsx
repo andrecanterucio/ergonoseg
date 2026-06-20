@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MessageCircle, X } from 'lucide-react'
+import { X } from 'lucide-react'
 
 export default function WhatsAppButton() {
   const [tooltip, setTooltip] = useState(true)
@@ -89,7 +89,7 @@ export default function WhatsAppButton() {
           e.currentTarget.style.boxShadow = '0 4px 20px rgba(37,211,102,0.5)'
         }}
       >
-        <MessageCircle size={28} color="white" fill="white" />
+        <img src="/whatsapp.png" alt="WhatsApp" width="32" height="32" style={{ objectFit: 'contain' }} />
       </a>
 
       <style>{`

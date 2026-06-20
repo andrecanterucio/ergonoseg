@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ArrowRight, MessageCircle, CheckCircle, Shield } from 'lucide-react'
+import { ArrowRight, CheckCircle, Shield } from 'lucide-react'
 
 
 const dynamicPhrases = [
@@ -40,9 +40,9 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         position: 'relative',
-        minHeight: '100svh',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
@@ -52,7 +52,7 @@ export default function Hero() {
       {/* YouTube video background */}
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
         <iframe
-          src="https://www.youtube.com/embed/L4u7cRhl9XI?autoplay=1&mute=1&loop=1&playlist=L4u7cRhl9XI&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3"
+          src="https://www.youtube.com/embed/L4u7cRhl9XI?autoplay=1&mute=1&loop=1&playlist=L4u7cRhl9XI&controls=0&showinfo=0&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&playsinline=1"
           allow="autoplay; encrypted-media"
           style={{
             position: 'absolute',
@@ -188,7 +188,7 @@ export default function Hero() {
             className="btn-outline"
             id="hero-cta-whatsapp"
           >
-            <MessageCircle size={18} />
+            <img src="/whatsapp.png" alt="WhatsApp" width="18" height="18" style={{ objectFit: 'contain' }} />
             Falar pelo WhatsApp
           </a>
         </div>

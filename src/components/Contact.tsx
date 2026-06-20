@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { Send, Phone, Mail, MapPin, CheckCircle, MessageCircle } from 'lucide-react'
+import { Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react'
+
+const WhatsAppIcon = ({ size = 20 }: { size?: number; color?: string }) => (
+  <img src="/whatsapp.png" alt="WhatsApp" width={size} height={size} style={{ objectFit: 'contain' }} />
+)
 
 const services = [
   'PGR — Gerenciamento de Riscos',
@@ -57,7 +61,7 @@ export default function Contact() {
     border: '1px solid #d1d5db',
     borderRadius: '10px',
     color: '#111827',
-    fontSize: '0.95rem',
+    fontSize: '1rem',
     fontFamily: 'Inter, sans-serif',
     outline: 'none',
     transition: 'border-color 0.2s ease',
@@ -104,7 +108,7 @@ export default function Contact() {
               </h3>
               {[
                 {
-                  icon: MessageCircle,
+                  icon: WhatsAppIcon,
                   label: 'WhatsApp',
                   value: '(16) 99690-2000',
                   href: 'https://wa.me/5516996902000',
