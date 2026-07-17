@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, Shield } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Menu, X, Shield, ChevronDown } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 const navLinks = [
@@ -9,9 +9,19 @@ const navLinks = [
   { label: 'Contato', href: '/#contato' },
 ]
 
+const cursosDropdownItems = [
+  {
+    label: 'Formação de Perito Judicial e Assistente Técnico',
+    href: '/cursos/pericia-judicial',
+  },
+]
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [cursosOpen, setCursosOpen] = useState(false)
+  const [mobileCursosOpen, setMobileCursosOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
   const isHome = location.pathname === '/'
 
@@ -20,6 +30,27 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setCursosOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const textColor = (!isHome || scrolled) ? 'rgba(17,24,39,0.75)' : 'rgba(255,255,255,0.82)'
+  const hoverColor = (!isHome || scrolled) ? '#1a5c38' : '#6ee9a7'
+
+  const linkStyle: React.CSSProperties = {
+    color: textColor,
+    textDecoration: 'none',
+    fontSize: '0.95rem',
+    fontWeight: 500,
+    transition: 'color 0.2s ease',
+  }
 
   return (
     <nav
@@ -64,22 +95,14 @@ export default function Navbar() {
           {/* Desktop nav */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">
             {navLinks.map(link => {
-              const style = {
-                color: (!isHome || scrolled) ? 'rgba(17,24,39,0.75)' : 'rgba(255,255,255,0.82)',
-                textDecoration: 'none' as const,
-                fontSize: '0.95rem',
-                fontWeight: 500,
-                transition: 'color 0.2s ease',
-              }
-              const hover = (!isHome || scrolled) ? '#1a5c38' : '#6ee9a7'
               if (link.isRoute) {
                 return (
                   <Link
                     key={link.href}
                     to={link.href}
-                    style={style}
-                    onMouseEnter={e => (e.currentTarget.style.color = hover)}
-                    onMouseLeave={e => (e.currentTarget.style.color = style.color)}
+                    style={linkStyle}
+                    onMouseEnter={e => (e.currentTarget.style.color = hoverColor)}
+                    onMouseLeave={e => (e.currentTarget.style.color = textColor)}
                   >
                     {link.label}
                   </Link>
@@ -89,14 +112,92 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={isHome ? link.href.replace('/', '') : link.href}
-                  style={style}
-                  onMouseEnter={e => (e.currentTarget.style.color = hover)}
-                  onMouseLeave={e => (e.currentTarget.style.color = style.color)}
+                  style={linkStyle}
+                  onMouseEnter={e => (e.currentTarget.style.color = hoverColor)}
+                  onMouseLeave={e => (e.currentTarget.style.color = textColor)}
                 >
                   {link.label}
                 </a>
               )
             })}
+
+            {/* Dropdown Cursos */}
+            <div ref={dropdownRef} style={{ position: 'relative' }}>
+              <button
+                onClick={() => setCursosOpen(prev => !prev)}
+                style={{
+                  ...linkStyle,
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  padding: 0,
+                }}
+                onMouseEnter={e => {
+                  const btn = e.currentTarget
+                  btn.style.color = hoverColor
+                }}
+                onMouseLeave={e => {
+                  const btn = e.currentTarget
+                  btn.style.color = textColor
+                }}
+              >
+                Cursos
+                <ChevronDown
+                  size={14}
+                  style={{ transition: 'transform 0.2s ease', transform: cursosOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
+              </button>
+
+              {cursosOpen && (
+                <div style={{
+                  position: 'absolute',
+                  top: 'calc(100% + 12px)',
+                  right: 0,
+                  background: 'rgba(255,255,255,0.98)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  borderRadius: '12px',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                  border: '1px solid rgba(0,0,0,0.07)',
+                  minWidth: '280px',
+                  overflow: 'hidden',
+                  zIndex: 100,
+                }}>
+                  {cursosDropdownItems.map(item => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setCursosOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: '14px 20px',
+                        color: 'rgba(17,24,39,0.75)',
+                        textDecoration: 'none',
+                        fontSize: '0.9rem',
+                        fontWeight: 500,
+                        transition: 'background 0.15s ease, color 0.15s ease',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.background = 'rgba(26,92,56,0.06)'
+                        e.currentTarget.style.color = '#1a5c38'
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.background = 'transparent'
+                        e.currentTarget.style.color = 'rgba(17,24,39,0.75)'
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <a href={isHome ? '#contato' : '/#contato'} className="btn-primary" style={{ padding: '10px 24px', fontSize: '0.9rem' }}>
               Solicitar Orçamento
             </a>
@@ -123,11 +224,11 @@ export default function Navbar() {
             padding: '20px 0',
           }}>
             {navLinks.map(link => {
-              const mobileStyle = {
+              const mobileStyle: React.CSSProperties = {
                 display: 'block',
                 padding: '12px 24px',
                 color: 'rgba(17,24,39,0.8)',
-                textDecoration: 'none' as const,
+                textDecoration: 'none',
                 fontSize: '1rem',
                 fontWeight: 500,
               }
@@ -144,6 +245,57 @@ export default function Navbar() {
                 </a>
               )
             })}
+
+            {/* Mobile Cursos expandível */}
+            <div>
+              <button
+                onClick={() => setMobileCursosOpen(prev => !prev)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  padding: '12px 24px',
+                  background: 'none',
+                  border: 'none',
+                  color: 'rgba(17,24,39,0.8)',
+                  fontSize: '1rem',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                }}
+              >
+                Cursos
+                <ChevronDown
+                  size={16}
+                  style={{ transition: 'transform 0.2s ease', transform: mobileCursosOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
+              </button>
+              {mobileCursosOpen && (
+                <div style={{ background: 'rgba(26,92,56,0.04)', borderTop: '1px solid rgba(0,0,0,0.05)' }}>
+                  {cursosDropdownItems.map(item => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => { setIsOpen(false); setMobileCursosOpen(false) }}
+                      style={{
+                        display: 'block',
+                        padding: '11px 36px',
+                        color: '#1a5c38',
+                        textDecoration: 'none',
+                        fontSize: '0.92rem',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <div style={{ padding: '12px 24px' }}>
               <a href={isHome ? '#contato' : '/#contato'} className="btn-primary" onClick={() => setIsOpen(false)} style={{ width: '100%', justifyContent: 'center' }}>
                 Solicitar Orçamento

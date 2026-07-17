@@ -10,10 +10,12 @@ import BannerCTA from './components/BannerCTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import HomePopup from './components/HomePopup'
 import QuemSomos from './pages/QuemSomos'
 import PoliticaPrivacidade from './pages/PoliticaPrivacidade'
 import TermosUso from './pages/TermosUso'
 import LGPDPage from './pages/LGPD'
+import PericiaJudicial from './pages/cursos/PericiaJudicial'
 
 function HomePage() {
   return (
@@ -30,6 +32,7 @@ function HomePage() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <HomePopup />
     </>
   )
 }
@@ -42,6 +45,7 @@ export default function App() {
       <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
       <Route path="/termos-de-uso" element={<TermosUso />} />
       <Route path="/lgpd" element={<LGPDPage />} />
+      <Route path="/cursos/pericia-judicial" element={<PericiaJudicial />} />
     </Routes>
   )
 }
