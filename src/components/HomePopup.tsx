@@ -78,7 +78,7 @@ export default function HomePopup() {
           style={{ display: 'block' }}
         >
           <img
-            src="/images/banner-poupup.png"
+            src="/images/banner-poupup.webp"
             alt="Formação de Perito Judicial — Garanta sua vaga"
             style={{ width: '100%', display: 'block' }}
           />

@@ -79,7 +79,7 @@ export default function PericiaJudicial() {
               Dê o próximo passo na sua carreira e entre em um dos mercados mais valorizados e bem remunerados do país: a Perícia Judicial.
             </p>
             <img
-              src="/images/curso-pericia-judicial.jpeg"
+              src="/images/curso-pericia-judicial.webp"
               alt="Curso de Formação de Perito Judicial e Assistente Técnico"
               style={{
                 maxWidth: '600px',
