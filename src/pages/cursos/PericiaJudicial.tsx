@@ -5,7 +5,7 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import WhatsAppButton from '../../components/WhatsAppButton'
 
-const VAGA_URL = 'https://tinyurl.com/3unmwzj8'
+const WHATSAPP_URL = 'https://wa.me/5516996902000?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Curso%20de%20Forma%C3%A7%C3%A3o%20de%20Perito%20Judicial%20e%20Assistente%20T%C3%A9cnico.'
 
 const preparadoItems = [
   'Entender como funciona a perícia judicial na prática',
@@ -67,28 +67,17 @@ export default function PericiaJudicial() {
               lineHeight: 1.2,
               marginBottom: '20px',
             }}>
-              7º Curso de Formação de Perito Judicial e Assistente Técnico
+              Curso de Formação de Perito Judicial e Assistente Técnico
             </h1>
             <p style={{
               fontSize: '1.1rem',
               lineHeight: 1.7,
               color: 'rgba(255,255,255,0.85)',
               maxWidth: '680px',
-              margin: '0 auto 40px',
+              margin: '0 auto',
             }}>
               Dê o próximo passo na sua carreira e entre em um dos mercados mais valorizados e bem remunerados do país: a Perícia Judicial.
             </p>
-            <img
-              src="/images/curso-pericia-judicial.webp"
-              alt="Curso de Formação de Perito Judicial e Assistente Técnico"
-              style={{
-                maxWidth: '600px',
-                width: '100%',
-                borderRadius: '16px',
-                display: 'block',
-                margin: '0 auto',
-              }}
-            />
           </div>
         </section>
 
@@ -232,7 +221,7 @@ export default function PericiaJudicial() {
               lineHeight: 1.2,
               marginBottom: '20px',
             }}>
-              Vagas Limitadas — Garanta sua participação!
+              Quer saber mais sobre este curso?
             </h2>
             <p style={{
               fontSize: '1.05rem',
@@ -240,14 +229,16 @@ export default function PericiaJudicial() {
               color: 'rgba(255,255,255,0.85)',
               marginBottom: '40px',
             }}>
-              A demanda por peritos qualificados cresce constantemente, e poucos profissionais estão realmente preparados para aproveitar essa oportunidade. Este curso entrega exatamente o que você precisa para sair na frente e começar com confiança.
+              Fale com a nossa equipe pelo WhatsApp e tire todas as suas dúvidas sobre o curso.
             </p>
             <a
-              href={VAGA_URL}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                display: 'inline-block',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
                 background: '#1a5c38',
                 color: 'white',
                 textDecoration: 'none',
@@ -261,7 +252,7 @@ export default function PericiaJudicial() {
               onMouseEnter={e => (e.currentTarget.style.background = '#2d7a52')}
               onMouseLeave={e => (e.currentTarget.style.background = '#1a5c38')}
             >
-              Garantir Minha Vaga Agora
+              💬 Falar pelo WhatsApp
             </a>
           </div>
         </section>

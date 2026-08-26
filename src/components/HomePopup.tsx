@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
-const VAGA_URL = 'https://tinyurl.com/3unmwzj8'
-const EXPIRY_DATE = new Date('2026-08-16T21:00:00Z') // 18h Brasília = 21h UTC
-const SESSION_KEY = 'popup_shown'
+const VAGA_URL = 'https://www.sympla.com.br/evento/curso-pericia-e-assistencia-tecnica-em-ergonomia/3547526?token=2c2a2bf5b020138bcb3a7cfc25c9b6a4'
+const EXPIRY_DATE = new Date('2026-10-18T03:00:00Z') // fim do dia 17/10/2026 (Brasília)
+const SESSION_KEY = 'popup_shown_pericia_ergonomia'
 
 export default function HomePopup() {
   const isExpired = new Date() >= EXPIRY_DATE
@@ -45,6 +45,7 @@ export default function HomePopup() {
           width: '100%',
           borderRadius: '16px',
           overflow: 'hidden',
+          background: 'white',
         }}
       >
         <button
@@ -78,11 +79,22 @@ export default function HomePopup() {
           style={{ display: 'block' }}
         >
           <img
-            src="/images/banner-poupup.webp"
-            alt="Formação de Perito Judicial — Garanta sua vaga"
+            src="/images/banner-pericia-ergonomia.webp"
+            alt="Curso Perícia e Assistência Técnica em Ergonomia — Garanta sua vaga"
             style={{ width: '100%', display: 'block' }}
           />
         </a>
+        <div style={{ padding: '20px', textAlign: 'center' }}>
+          <a
+            href={VAGA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{ width: '100%', justifyContent: 'center' }}
+          >
+            Garantir Minha Vaga
+          </a>
+        </div>
       </div>
 
       <style>{`
