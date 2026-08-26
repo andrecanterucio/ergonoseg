@@ -14,6 +14,10 @@ const cursosDropdownItems = [
     label: 'Formação de Perito Judicial e Assistente Técnico',
     href: '/cursos/pericia-judicial',
   },
+  {
+    label: 'Perícia e Assistência Técnica em Ergonomia',
+    href: '/cursos/pericia-assistencia-ergonomia',
+  },
 ]
 
 export default function Navbar() {

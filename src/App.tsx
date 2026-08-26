@@ -16,6 +16,7 @@ import PoliticaPrivacidade from './pages/PoliticaPrivacidade'
 import TermosUso from './pages/TermosUso'
 import LGPDPage from './pages/LGPD'
 import PericiaJudicial from './pages/cursos/PericiaJudicial'
+import PericiaAssistenciaErgonomia from './pages/cursos/PericiaAssistenciaErgonomia'
 
 function HomePage() {
   return (
@@ -46,6 +47,7 @@ export default function App() {
       <Route path="/termos-de-uso" element={<TermosUso />} />
       <Route path="/lgpd" element={<LGPDPage />} />
       <Route path="/cursos/pericia-judicial" element={<PericiaJudicial />} />
+      <Route path="/cursos/pericia-assistencia-ergonomia" element={<PericiaAssistenciaErgonomia />} />
     </Routes>
   )
 }
