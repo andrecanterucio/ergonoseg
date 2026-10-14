@@ -92,7 +92,7 @@ export default function BannerCTA() {
             <ArrowRight size={18} />
           </a>
           <a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5516996902000"
             target="_blank"
             rel="noopener noreferrer"
             id="banner-cta-whatsapp"

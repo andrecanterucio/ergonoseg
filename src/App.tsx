@@ -11,6 +11,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 import HomePopup from './components/HomePopup'
+import CookieNotice from './components/CookieNotice'
+import RouteMeta from './components/RouteMeta'
 import QuemSomos from './pages/QuemSomos'
 import PoliticaPrivacidade from './pages/PoliticaPrivacidade'
 import TermosUso from './pages/TermosUso'
@@ -40,6 +42,8 @@ function HomePage() {
 
 export default function App() {
   return (
+    <>
+    <RouteMeta />
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/quem-somos" element={<QuemSomos />} />
@@ -49,5 +53,7 @@ export default function App() {
       <Route path="/cursos/pericia-judicial" element={<PericiaJudicial />} />
       <Route path="/cursos/pericia-assistencia-ergonomia" element={<PericiaAssistenciaErgonomia />} />
     </Routes>
+    <CookieNotice />
+    </>
   )
 }

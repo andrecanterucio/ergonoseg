@@ -308,3 +308,12 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-track { background: #f0f0f0; }
 ::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--green-primary); }
+
+/* aviso de cookies (LGPD) */
+#cookie-notice{position:fixed;left:16px;right:16px;bottom:16px;z-index:10000;max-width:560px;background:#1b2d42;border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 40px -12px rgba(0,0,0,.5);padding:18px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:14px;color:#e5e7eb;border-radius:12px}
+#cookie-notice p{flex:1 1 260px;margin:0;line-height:1.5}
+#cookie-notice a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+#cookie-notice div{display:flex;gap:10px}
+#cookie-notice button{min-height:44px;padding:0 18px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;cursor:pointer;font-weight:700;border-radius:8px}
+#cookie-notice button.ok{background:#1a5c38;border-color:#1a5c38}
+@media (max-width:520px){#cookie-notice{bottom:96px}}

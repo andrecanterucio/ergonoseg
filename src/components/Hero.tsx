@@ -182,7 +182,7 @@ export default function Hero() {
             <ArrowRight size={18} />
           </a>
           <a
-            href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da Ergonoseg."
+            href="https://wa.me/5516996902000?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Ergonoseg."
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
