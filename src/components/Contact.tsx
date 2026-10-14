@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { track } from '../lib/medicao'
 import { Send, Phone, Mail, MapPin, CheckCircle } from 'lucide-react'
 
 const WhatsAppIcon = ({ size = 20 }: { size?: number; color?: string }) => (
@@ -50,6 +51,7 @@ export default function Contact() {
       `🔧 Serviço: ${form.service}\n` +
       `📝 Mensagem: ${form.message}`
     )
+    track('generate_lead', { method: 'form_whatsapp', service: form.service || 'nao_informado' })
     window.open(`https://wa.me/5516996902000?text=${msg}`, '_blank')
     setSubmitted(true)
   }
