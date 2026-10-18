@@ -1,6 +1,5 @@
 // GA4 com consentimento (LGPD) + eventos. Padrão ZACDA (skill-medicao-lp).
 // Consent Mode v2: cookies/identificação do GA4 só após o "Aceitar"; a escolha fica no localStorage.
-const GA_ID = 'G-YT660K9FQL' // ID de medição da propriedade "Ergonoseg - Site"
 const KEY = 'ergonoseg_consent'
 
 declare global {
