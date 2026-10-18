@@ -1,5 +1,5 @@
 // GA4 com consentimento (LGPD) + eventos. Padrão ZACDA (skill-medicao-lp).
-// O GA4 só carrega depois do "Aceitar"; a escolha fica no localStorage.
+// Consent Mode v2: cookies/identificação do GA4 só após o "Aceitar"; a escolha fica no localStorage.
 const GA_ID = 'G-YT660K9FQL' // ID de medição da propriedade "Ergonoseg - Site"
 const KEY = 'ergonoseg_consent'
 
@@ -26,20 +26,12 @@ export function setConsent(v: 'granted' | 'denied') {
   if (v === 'granted') loadGA()
 }
 
+// A tag gtag.js é carregada no index.html (Consent Mode v2, analytics_storage negado por padrão).
+// Aqui só concedemos o consentimento; page_view é enviado a cada rota (trackPageView).
 export function loadGA() {
-  if (loaded || !GA_ID || GA_ID.includes('XXXX')) return
+  if (loaded || typeof window.gtag !== 'function') return
   loaded = true
-  window.dataLayer = window.dataLayer || []
-  // gtag.js exige o objeto `arguments`, não um array
-  // eslint-disable-next-line prefer-rest-params
-  window.gtag = function () { window.dataLayer.push(arguments) }
-  const s = document.createElement('script')
-  s.async = true
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-  document.head.appendChild(s)
-  window.gtag('js', new Date())
-  // SPA: page_view é enviado a cada rota (trackPageView)
-  window.gtag('config', GA_ID, { anonymize_ip: true, send_page_view: false })
+  window.gtag('consent', 'update', { analytics_storage: 'granted' })
   trackPageView()
 }
 
