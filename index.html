@@ -2,6 +2,17 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <!-- GA4 em Consent Mode v2: tag presente no HTML (detectável pelo Google), cookies só após "Aceitar" -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      var c = 'denied';
+      try { if (localStorage.getItem('ergonoseg_consent') === 'granted') c = 'granted'; } catch (e) {}
+      gtag('consent', 'default', { analytics_storage: c, ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      gtag('js', new Date());
+      gtag('config', 'G-YT660K9FQL', { anonymize_ip: true, send_page_view: false });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YT660K9FQL"></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
