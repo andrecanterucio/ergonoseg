@@ -22,16 +22,17 @@ export function getConsent(): 'granted' | 'denied' | null {
 
 export function setConsent(v: 'granted' | 'denied') {
   try { localStorage.setItem(KEY, v) } catch { /* sem storage: não persiste */ }
-  if (v === 'granted') loadGA()
+  // aceite na rota atual: o RouteMeta já rodou sem consentimento, então o page_view sai aqui
+  if (v === 'granted' && loadGA()) trackPageView()
 }
 
 // A tag gtag.js é carregada no index.html (Consent Mode v2, analytics_storage negado por padrão).
-// Aqui só concedemos o consentimento; page_view é enviado a cada rota (trackPageView).
-export function loadGA() {
-  if (loaded || typeof window.gtag !== 'function') return
+// Aqui só concedemos o consentimento; o page_view de cada rota é enviado pelo RouteMeta.
+export function loadGA(): boolean {
+  if (loaded || typeof window.gtag !== 'function') return false
   loaded = true
   window.gtag('consent', 'update', { analytics_storage: 'granted' })
-  trackPageView()
+  return true
 }
 
 export function track(name: string, params: Record<string, unknown> = {}) {
